@@ -1,0 +1,340 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row mt-2">
+    <div class="col-3">
+        <div class="card mt-2" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="text-center mb-2"><strong>Kategoriler</strong><hr /></div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categoryRadios" id="exampleRadios1" value="option1">
+                            <label class="form-check-label" for="exampleRadios1">
+                                Default radio
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categoryRadios" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Second default radio
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categoryRadios" id="exampleRadios3" value="option3">
+                            <label class="form-check-label" for="exampleRadios3">
+                                Disabled radio
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="text-center mb-2"><strong>Fiyat</strong><hr /></div>
+                    <div class="my-3">
+                        <div class="my-2">
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon3">Min Price</span>
+                                <input type="number" name="minPrice" class="form-control">
+                            </div>
+                        </div>
+                        <div class="my-2">
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon3">Max Price</span>
+                                <input type="number" name="maxPrice" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="text-center mb-2"><strong>Sıralama</strong><hr /></div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="orderBy" id="exampleRadios1" value="asc">
+                            <label class="form-check-label" for="exampleRadios1">
+                                Artan Fiyat
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="orderBy" id="exampleRadios2" value="desc">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Azalan Fiyat
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="orderBy" id="exampleRadios3" value="">
+                            <label class="form-check-label" for="exampleRadios3">
+                                Seçim Yok
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="text-center mb-2"><strong>Puan</strong><hr /></div>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rating" id="rating5" value="5">
+                            <label class="form-check-label" for="rating5">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rating" id="rating4" value="4">
+                            <label class="form-check-label" for="rating4">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star"></i>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rating" id="rating3" value="3">
+                            <label class="form-check-label" for="rating3">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rating" id="rating2" value="2">
+                            <label class="form-check-label" for="rating2">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rating" id="rating1" value="1">
+                            <label class="form-check-label" for="rating1">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                            </label>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="d-grid mt-2">
+                <button class="btn btn-primary text-center" id="btnPost">
+                    Ara
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="row">
+            <div class="col-4 my-2">
+                <div class="card">
+                    <img class="card-img-top" src="https://dosaandchaat.com/templates/default-new/images/no-product-found.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 my-2">
+                <div class="card">
+                    <img class="card-img-top" src="https://dosaandchaat.com/templates/default-new/images/no-product-found.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 my-2">
+                <div class="card">
+                    <img class="card-img-top" src="https://dosaandchaat.com/templates/default-new/images/no-product-found.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 my-2">
+                <div class="card">
+                    <img class="card-img-top" src="https://dosaandchaat.com/templates/default-new/images/no-product-found.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 my-2">
+                <div class="card">
+                    <img class="card-img-top" src="https://dosaandchaat.com/templates/default-new/images/no-product-found.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 my-2">
+                <div class="card">
+                    <img class="card-img-top" src="https://dosaandchaat.com/templates/default-new/images/no-product-found.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 my-2">
+                <div class="card">
+                    <img class="card-img-top" src="https://dosaandchaat.com/templates/default-new/images/no-product-found.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 my-2">
+                <div class="card">
+                    <img class="card-img-top" src="https://dosaandchaat.com/templates/default-new/images/no-product-found.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 my-2">
+                <div class="card">
+                    <img class="card-img-top" src="https://dosaandchaat.com/templates/default-new/images/no-product-found.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center my-4">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        var categoryId = null;
+        var maxPrice = null;
+        var minPrice = null;
+        var orderBy = null;
+        var rating = null;
+        var currentPage = 0;
+
+        $('input[name="categoryRadios"]:radio').change(function () {
+            categoryId = $("input[name='categoryRadios']:checked").val();
+        });
+        $('input[name="minPrice"]').change(function () {
+            minPrice = $("input[name='minPrice']").val();
+        });
+        $('input[name="maxPrice"]').change(function () {
+            maxPrice = $("input[name='maxPrice']").val();
+        });
+        $('input[name="orderBy"]').change(function () {
+            orderBy = $("input[name='orderBy']:checked").val();
+        });
+        $('input[name="rating"]').change(function () {
+            rating = $("input[name='rating']:checked").val();
+        });
+
+        $('ul.pagination > li').click(function (e) {
+            e.preventDefault();
+            currentPage = $(this).text();
+            $('ul.pagination > li').removeClass('active');
+            $(this).addClass('active');
+            $('.navbar-toggler').click();
+        });
+
+
+
+        var request = function () {
+            $.ajax({
+                url: 'https://localhost:7038/api/Products?Page=0&PageSize=9',
+                type: 'POST',
+                data: JSON.stringify({ categoryId: categoryId, minPrice: minPrice, maxPrice: maxPrice, orderBy: orderBy, rating: rating }),
+                contentType: "application/json; charset=utf-8",
+                success: function (gelenveri) {
+                    console.log(gelenveri)
+                },
+                error: function (hata) {
+                    console.log(hata)
+                }
+            });
+        }
+        request();
+        $("#btnPost").click(function () {
+            $.ajax({
+                url: 'https://localhost:7038/api/Products?Page=0&PageSize=9',
+                type: 'POST',
+                data: JSON.stringify({ categoryId: categoryId, minPrice: minPrice, maxPrice: maxPrice, orderBy: orderBy, rating: rating }),
+                contentType: "application/json; charset=utf-8",
+                success: function (gelenveri) {
+                    console.log(gelenveri)
+                },
+                error: function (hata) {
+                    console.log(hata)
+                }
+            });
+        });
+
+
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+@* //checked false yapma
+        // $(this).prop('checked', false);
+        // alert($("input[name='exampleRadios']:checked").val());
+        // console.log(categoryId, maxPrice, minPrice) *@
