@@ -19,6 +19,9 @@ builder.Services.AddDbContext<ECommerceDbContext>();
 builder.Services.AddScoped<IProductDal, ProductDal>();
 builder.Services.AddScoped<IProductService, ProductService>();
 
+builder.Services.AddScoped<ICategoryDal, CategoryDal>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+
 builder.Services.AddCors(opt =>
 {
     opt.AddDefaultPolicy(policy =>

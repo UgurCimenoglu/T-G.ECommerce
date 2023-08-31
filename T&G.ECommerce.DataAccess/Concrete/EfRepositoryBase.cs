@@ -66,6 +66,11 @@ namespace T_G.ECommerce.DataAccess.Concrete
             return entity;
         }
 
+        public IList<TEntity> GetAll()
+        {
+            return Context.Set<TEntity>().ToList();
+        }
+
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)
             => Context.Set<TEntity?>().FirstOrDefault(predicate);
 

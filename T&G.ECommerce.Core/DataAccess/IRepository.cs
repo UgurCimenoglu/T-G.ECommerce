@@ -7,6 +7,7 @@ namespace T_G.ECommerce.Core.DataAccess
 {
     public interface IRepository<T> : IQuery<T> where T : Entity
     {
+        IList<T> GetAll();
         T Get(Expression<Func<T, bool>> predicate);
 
         IPaginate<T> GetList(Expression<Func<T, bool>>? predicate = null,
