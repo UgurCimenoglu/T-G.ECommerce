@@ -12,21 +12,9 @@
                     <div class="text-center mb-2"><strong>Kategoriler</strong><hr /></div>
                     <div class="my-3" id="categoryDiv">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="categoryRadios" id="exampleRadios1" value="option1">
+                            <input class="form-check-input" type="radio" name="categoryRadios" id="categoryRadios" value="all">
                             <label class="form-check-label" for="exampleRadios1">
-                                Default radio
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="categoryRadios" id="exampleRadios2" value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                                Second default radio
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="categoryRadios" id="exampleRadios3" value="option3">
-                            <label class="form-check-label" for="exampleRadios3">
-                                Disabled radio
+                                Tümü
                             </label>
                         </div>
                     </div>
@@ -74,6 +62,12 @@
                 <li class="list-group-item">
                     <div class="text-center mb-2"><strong>Puan</strong><hr /></div>
                     <div class="my-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rating" id="rating5" value="">
+                            <label class="form-check-label" for="rating5">
+                                Tüm Değerlendirmeler
+                            </label>
+                        </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="rating" id="rating5" value="5">
                             <label class="form-check-label" for="rating5">
@@ -127,11 +121,6 @@
                     </div>
                 </li>
             </ul>
-            <div class="d-grid mt-2">
-                <button class="btn btn-primary text-center" id="btnPost">
-                    Ara
-                </button>
-            </div>
         </div>
     </div>
     <div class="col-9">
@@ -236,8 +225,8 @@
         <div class="d-flex justify-content-center my-4">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Previous" id="previous">
                             <span aria-hidden="true">&laquo;</span>
                             <span class="sr-only">Previous</span>
                         </a>
@@ -258,114 +247,3 @@
 </div>
 
 
-<script>
-    $(document).ready(function () {
-        var categoryId = null;
-        var maxPrice = null;
-        var minPrice = null;
-        var orderBy = null;
-        var rating = null;
-        var currentPage = 0;
-
-        var getCategories = function () {
-            $.ajax({
-                url: 'https://localhost:7038/api/Category',
-                type: 'GET',
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-                    $("#categoryDiv").html("")
-                    $.each(data, function (i, item) {
-                        var category = "<div class='form-check'>" +
-                            "<input class='form-check-input' type='radio' name='categoryRadios' id='exampleRadios1' value=" + item.id + " >" +
-                            "<label class='form-check-label' for='exampleRadios1'>" + item.name + "</label></div>";
-                        $("#categoryDiv").append(category)
-                    })
-
-                },
-                error: function (error) {
-                    console.log(error)
-                }
-            });
-        }
-        getCategories();
-
-        var request = function () {
-            $.ajax({
-                url: 'https://localhost:7038/api/Products?Page=0&PageSize=9',
-                type: 'POST',
-                data: JSON.stringify({ categoryId: categoryId, minPrice: minPrice, maxPrice: maxPrice, orderBy: orderBy, rating: rating }),
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-                    $("#productDiv").html("");
-                    $.each(data.items, function (i, item) {
-                        var product = "<div class='col-4 my-2'>" +
-                            "<div class='card'>" +
-                            "<img class='card-img-top' src = 'https://dosaandchaat.com/templates/default-new/images/no-product-found.png' alt = 'Card image cap' >" +
-                            "<div class='card-body'>" +
-                            "<h5 class='card-title' >" + item.name + "</h5>" +
-                            "<p class='card-text'>" + item.description + "</p>" +
-                            "<div class='d-flex justify-content-between align-items-center' >" +
-                            "<a href='#' class='btn btn-primary'>Sepete Ekle </a>" +
-                            "<strong class='fs-5'>₺" + item.price + "</strong>" +
-                            "</div>" +
-                            "</div>" +
-                            "</div>" +
-                            "</div>";
-                        console.log(item)
-                        $("#productDiv").append(product)
-                    })
-                    console.log(data)
-                },
-                error: function (error) {
-                    console.log(error)
-                }
-            });
-        }
-        request();
-
-        $('#categoryDiv').on("click", "#exampleRadios1", function () {
-            categoryId = $("input[name='categoryRadios']:checked").val();
-            alert($("input[name='categoryRadios']:checked").val())
-        });
-        $('input[name="minPrice"]').change(function () {
-            minPrice = $("input[name='minPrice']").val();
-        });
-        $('input[name="maxPrice"]').change(function () {
-            maxPrice = $("input[name='maxPrice']").val();
-        });
-        $('input[name="orderBy"]').change(function () {
-            orderBy = $("input[name='orderBy']:checked").val();
-        });
-        $('input[name="rating"]').change(function () {
-            rating = $("input[name='rating']:checked").val();
-        });
-        $('ul.pagination > li').click(function (e) {
-            e.preventDefault();
-            currentPage = $(this).text();
-            $('ul.pagination > li').removeClass('active');
-            $(this).addClass('active');
-            $('.navbar-toggler').click();
-        });
-        $("#btnPost").click(request);
-
-
-
-
-    });
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-@* //checked false yapma
-        // $(this).prop('checked', false);
-        // alert($("input[name='exampleRadios']:checked").val());
-        // console.log(categoryId, maxPrice, minPrice) *@
