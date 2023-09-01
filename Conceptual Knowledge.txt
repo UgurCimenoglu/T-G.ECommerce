@@ -1,12 +1,12 @@
-Software Engineering 102
+ï»¿Software Engineering 102
 
 Conceptual Knowledge
 1. Which programming language did you use?
-  - Genellikle c# ve javascript ve bu dillerin frameworkleri kullanýyorum.(React, Angular, .Net Core, NodeJs) ve nadiren java spring kullandýðým zamanlar oldu.
+  - I usually use c# and javascript and frameworks of these languages â€‹â€‹(React, Angular, .Net Core, NodeJs) and there were times when I rarely used java spring.
 
 2. Which books did you read to be a better software engineer?
-  - Serdar Biroðul - C# ile Görsel Programlama
-  - Timur Karaçay Yazýlým Mühendisliðine Giriþ  
+  - Serdar BiroÄŸul - C# ile GÃ¶rsel Programlama
+  - Timur KaraÃ§ay YazÄ±lÄ±m MÃ¼hendisliÄŸine GiriÅŸ  
 
 3. Which blogs, websites do you follow and what is the frequency?
   - Frequently i visited buraksenyurt.com, gencayyildiz.com, patika.dev, udemy.com etc.. and stackoverflow comes to my aid when i run into a problem.
