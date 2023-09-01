@@ -12,15 +12,18 @@ namespace T_G.ECommerce.DataAccess.Context
 {
     public class ECommerceDbContext : DbContext
     {
+        //I Added DbSet Properties
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
 
+        // I overriden onConfiguring method and set sqlServer connectionString
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Configuration.ConnectionString);
             base.OnConfiguring(optionsBuilder);
         }
 
+        // I added seed data to the database, data will be added automatically when the db is migrate.
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             Guid laptopGuid = Guid.NewGuid();
@@ -98,6 +101,7 @@ namespace T_G.ECommerce.DataAccess.Context
             base.OnModelCreating(modelBuilder);
         }
 
+        //When data create or update, i caught both actions and ı updated created or updated date automatically
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             var datas = ChangeTracker.Entries<Entity>();

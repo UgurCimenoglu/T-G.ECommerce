@@ -11,6 +11,7 @@ namespace T_G.ECommerce.Business.Concrete
 {
     public class CategoryService : ICategoryService
     {
+        //I called categoryDal instance from IoC with constructor injection 
         private readonly ICategoryDal _categoryDal;
 
         public CategoryService(ICategoryDal categoryDal)
@@ -18,6 +19,7 @@ namespace T_G.ECommerce.Business.Concrete
             _categoryDal = categoryDal;
         }
 
+        //All Categories listed
         public IList<Category> GetAll()
         {
             return _categoryDal.GetAll();

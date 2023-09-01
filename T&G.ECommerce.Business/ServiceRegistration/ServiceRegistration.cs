@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using T_G.ECommerce.Business.Abstract;
 using T_G.ECommerce.Business.Concrete;
 using T_G.ECommerce.DataAccess.Context;
 
 namespace T_G.ECommerce.Business.ServiceRegistration
 {
+    // Layer based IoC service implementation
     public static class ServiceRegistration
     {
         public static void AddBusinessServices(this IServiceCollection services)

@@ -9,6 +9,7 @@ namespace T_G.ECommerce.Business.Concrete
 {
     public class ProductService : IProductService
     {
+        //I called productDal instance from IoC with constructor injection 
         private readonly IProductDal _productDal;
 
         public ProductService(IProductDal productDal)
@@ -16,6 +17,7 @@ namespace T_G.ECommerce.Business.Concrete
             _productDal = productDal;
         }
 
+        //Products listed with pagination and filter criterias
         public IPaginate<Product> GetList(PageRequest pageRequest, Filter filter)
         {
             var res = _productDal.GetList(

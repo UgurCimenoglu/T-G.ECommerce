@@ -5,6 +5,7 @@ using T_G.ECommerce.Core.Entities;
 
 namespace T_G.ECommerce.Core.DataAccess
 {
+    //Generic async repository pattern interface 
     public interface IAsyncRepository<T> : IQuery<T> where T : Entity
     {
         Task<T?> GetAsync(Expression<Func<T, bool>> predicate);

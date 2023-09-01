@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace T_G.ECommerce.Core.Request
 {
+    //Pagination Request Filter Parameters
     public class Filter
     {
         public Guid? CategoryId { get; set; } = null;
