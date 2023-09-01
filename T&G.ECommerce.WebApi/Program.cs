@@ -1,9 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using T_G.ECommerce.Business.Abstract;
-using T_G.ECommerce.Business.Concrete;
 using T_G.ECommerce.Business.ServiceRegistration;
-using T_G.ECommerce.DataAccess.Abstract;
-using T_G.ECommerce.DataAccess.Concrete;
 using T_G.ECommerce.DataAccess.Context;
 using T_G.ECommerce.DataAccess.ServiceRegistration;
 
@@ -20,8 +16,6 @@ await context.Database.MigrateAsync();
 
 builder.Services.AddDataAccessServices();
 builder.Services.AddBusinessServices();
-
-
 
 builder.Services.AddCors(opt =>
 {
