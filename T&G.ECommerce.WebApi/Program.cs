@@ -10,14 +10,18 @@ using T_G.ECommerce.DataAccess.ServiceRegistration;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+ECommerceDbContext context = new();
+await context.Database.MigrateAsync();
+
 builder.Services.AddDataAccessServices();
 builder.Services.AddBusinessServices();
+
+
 
 builder.Services.AddCors(opt =>
 {

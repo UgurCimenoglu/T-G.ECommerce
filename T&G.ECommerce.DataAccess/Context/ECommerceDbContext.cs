@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using T_G.ECommerce.Core.Entities;
 using T_G.ECommerce.Entities.Concrete;
+using Microsoft.Extensions.Configuration;
 
 namespace T_G.ECommerce.DataAccess.Context
 {
     public class ECommerceDbContext : DbContext
     {
-
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=TGECommerce;Trusted_Connection=True;MultipleActiveResultSets=True;Encrypt=False;");
+            optionsBuilder.UseSqlServer(Configuration.ConnectionString);
             base.OnConfiguring(optionsBuilder);
         }
 

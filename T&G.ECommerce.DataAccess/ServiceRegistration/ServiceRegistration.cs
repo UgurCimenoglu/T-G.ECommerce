@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using T_G.ECommerce.DataAccess.Abstract;
 using T_G.ECommerce.DataAccess.Concrete;
@@ -15,8 +16,6 @@ namespace T_G.ECommerce.DataAccess.ServiceRegistration
     {
         public static void AddDataAccessServices(this IServiceCollection services)
         {
-            services.AddDbContext<ECommerceDbContext>();
-
             services.AddScoped<IProductDal, ProductDal>();
             services.AddScoped<ICategoryDal, CategoryDal>();
         }
