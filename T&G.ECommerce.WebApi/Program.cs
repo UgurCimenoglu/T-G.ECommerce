@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using T_G.ECommerce.Business.Abstract;
 using T_G.ECommerce.Business.Concrete;
+using T_G.ECommerce.Business.ServiceRegistration;
 using T_G.ECommerce.DataAccess.Abstract;
 using T_G.ECommerce.DataAccess.Concrete;
 using T_G.ECommerce.DataAccess.Context;
+using T_G.ECommerce.DataAccess.ServiceRegistration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,13 +16,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ECommerceDbContext>();
-
-builder.Services.AddScoped<IProductDal, ProductDal>();
-builder.Services.AddScoped<IProductService, ProductService>();
-
-builder.Services.AddScoped<ICategoryDal, CategoryDal>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddDataAccessServices();
+builder.Services.AddBusinessServices();
 
 builder.Services.AddCors(opt =>
 {

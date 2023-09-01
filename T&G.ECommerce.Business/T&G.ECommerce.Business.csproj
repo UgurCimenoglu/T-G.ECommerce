@@ -13,4 +13,8 @@
     <ProjectReference Include="..\T&amp;G.ECommerce.Entities\T&amp;G.ECommerce.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+  </ItemGroup>
+
 </Project>
