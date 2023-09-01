@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "T&G.ECommerce.WebApi", "T&G
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "T&G.ECommerce.Core", "T&G.ECommerce.Core\T&G.ECommerce.Core.csproj", "{4FDB8E1E-A385-4421-8626-05FF2113D982}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T&G.ECommerce.WebApplication", "T&G.ECommerce.WebApplication\T&G.ECommerce.WebApplication.csproj", "{F76FAD66-F36F-413E-80A6-7A333674B3FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "T&G.ECommerce.WebApplication", "T&G.ECommerce.WebApplication\T&G.ECommerce.WebApplication.csproj", "{F76FAD66-F36F-413E-80A6-7A333674B3FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Conceptual Knowledge", "Conceptual Knowledge", "{92D4FB23-BD85-4A4E-94A5-D42378080ADC}"
+	ProjectSection(SolutionItems) = preProject
+		Conceptual Knowledge.txt = Conceptual Knowledge.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
